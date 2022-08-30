@@ -1,0 +1,36 @@
+{
+  "name": "DigiMint",
+  "description": "Automate the minting process.",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "./images/icon16.ico",
+    "48": "./images/icon48.ico",
+    "128": "./images/icon128.ico"
+  },
+
+  "permissions": ["storage", "activeTab", "contextMenus"],
+
+  "action": {
+    "default_title": "DigiMint",
+    "default_popup": "index.html",
+    "permissions": ["tabs", "<all_urls>"],
+    "default_icon": {
+      "16": "./images/icon16.ico"
+    }
+  },
+
+  "minimum_chrome_version": "93",
+
+  "background": {
+    "service_worker": "./background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["./content.js"],
+      "matches": ["https://launchmynft.io/*"]
+    }
+  ]
+}
